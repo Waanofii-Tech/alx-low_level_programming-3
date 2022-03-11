@@ -1,46 +1,35 @@
 #include <stdio.h>
 
-/* betty style doc for function main goes there */
 /**
- * main - prints  all possible two two-digit combinations
- *
- *
- * Return: Always 0 (Success)
+ * main - create 2 pairs of numbers that do not repeat
+ * Return: 0
  */
 int main(void)
 {
-	int a, b, c, d;
+	int j, i;
 
-	for (a = '0'; a <= '9'; a++)
+	for (j = 0; j <= 99; j++)
 	{
-
-		for (b = '0'; b <= '8'; b++)
+		for (i = j; i <= 99; i++)
 		{
-
-			for (c = '0'; c <= '9'; c++)
+			if (i != j)
 			{
 
-				for (d = '0'; d <= '9'; d++)
+				putchar(j / 10 + 48);
+				putchar(j % 10 + 48);
+				putchar(' ');
+				putchar(i / 10 + 48);
+				putchar(i % 10 + 48);
+
+				if (j * 100 + i != 9899)
 				{
-					if (a <= c && b <= d)
-					{
-					putchar(a);
-					putchar(b);
+					putchar(',');
 					putchar(' ');
-					putchar(c);
-					putchar(d);
-
-						if (a != '9' || b != '8' || c != '9' || d != '9')
-						{
-							putchar(',');
-							putchar(' ');
-						}
-					}
 				}
-
 			}
 
 		}
+
 	}
 	putchar('\n');
 	return (0);
